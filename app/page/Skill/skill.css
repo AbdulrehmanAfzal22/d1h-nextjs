@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* ── Section ── */
+.skills-section {
+  background: #f0f2f4;
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  font-family: 'Barlow', sans-serif;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* ── Left ── */
+.skills-left {
+  flex: 1;
+  max-width: 560px;
+}
+
+.skills-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.skills-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.15;
+  margin: 0 0 28px 0;
+}
+
+.skills-desc {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 48px;
+}
+
+/* ── Circles Row ── */
+.circles-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.circle-item span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── SVG Circle ── */
+.circle-svg {
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 6;
+}
+
+.circle-fg {
+  fill: none;
+  stroke: #f5a623;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.4s ease;
+}
+
+.circle-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  fill: #1a1a1a;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+/* ── Right ── */
+.skills-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.blob-bg {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: #e4e6e9;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-44%, -50%);
+}
+
+.image-blob {
+  width: 420px;
+  height: 420px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  overflow: hidden;
+  background: #ddd;
+  position: relative;
+  z-index: 1;
+}
+
+.image-blob img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .skills-section {
+    flex-direction: column;
+    padding: 50px 24px;
+  }
+
+  .image-blob {
+    width: 300px;
+    height: 300px;
+  }
+
+  .blob-bg {
+    width: 330px;
+    height: 330px;
+  }
+}

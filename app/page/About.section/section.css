@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* ─── Section Layout ─────────────────────────────── */
+.is-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── Left Panel ─────────────────────────────────── */
+.is-left {
+  min-width: 220px;
+  max-width: 240px;
+}
+
+.is-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.is-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.is-desc {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* ─── Nav Buttons ────────────────────────────────── */
+.is-nav-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.is-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+.is-nav-btn:hover {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ─── Slider ─────────────────────────────────────── */
+.is-slider-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.is-slider-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.55s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+/* ─── Cards ──────────────────────────────────────── */
+.is-card {
+  min-width: 280px;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease forwards;
+}
+
+.is-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.is-card:hover img {
+  transform: scale(1.07);
+}
+
+.is-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    transparent 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.is-card:hover .is-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.25) 60%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.is-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px;
+  color: #fff;
+}
+
+.is-card-icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+  display: block;
+  opacity: 0.9;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.is-card:hover .is-card-icon {
+  transform: translateY(-4px);
+}
+
+.is-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.is-card:hover .is-card-title {
+  transform: translateY(-3px);
+}
+
+/* ─── Animations ─────────────────────────────────── */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.ts-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.ts-text {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+.ts-avatar-inline {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+  position: relative;
+  top: -2px;
+}
+
+.ts-avatar-inline img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ts-avatar-inline img:hover {
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ts-author {
+  margin-top: 40px;
+}
+
+.ts-author-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.ts-author-location {
+  font-size: 14px;
+  color: #999;
+}

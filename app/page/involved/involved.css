@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap');
+
+/* ── Section ── */
+.gi-section {
+  background: #ffffff;
+  padding: 80px 60px;
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* ── Heading ── */
+.gi-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 16px;
+}
+
+.gi-subtitle {
+  font-size: 1rem;
+  color: #888;
+  max-width: 520px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+
+/* ── Grid ── */
+.gi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto 56px;
+}
+
+/* ── Card ── */
+.gi-card {
+  background: #f0f4f7;
+  border-radius: 4px;
+  padding: 48px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+/* ── Icon wrapper ── */
+.gi-icon-wrap {
+  margin-bottom: 32px;
+}
+
+.gi-icon {
+  color: #e8541a;
+  transition: color 0.3s ease;
+}
+
+/* ── Card title ── */
+.gi-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: left;
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* ── Arrow — hidden by default ── */
+.gi-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Hover state ── */
+.gi-card:hover {
+  background: #e8541a;
+  transform: translateY(-4px);
+}
+
+.gi-card:hover .gi-icon {
+  color: #ffffff;
+}
+
+.gi-card:hover .gi-card-title {
+  color: #ffffff;
+}
+
+.gi-card:hover .gi-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Footer ── */
+.gi-footer {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.gi-link {
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.gi-link:hover {
+  color: #e8541a;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .gi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .gi-section {
+    padding: 50px 20px;
+  }
+
+  .gi-grid {
+    grid-template-columns: 1fr;
+  }
+}
