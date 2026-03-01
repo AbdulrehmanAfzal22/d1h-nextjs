@@ -1,7 +1,7 @@
 "use client";
 import "./grow.css";
 
-const team = [
+const teamMembers = [
   {
     name: "Stella Collins",
     role: "Legal Assistant",
@@ -24,56 +24,75 @@ const team = [
   },
 ];
 
-const socials = [
-  { label: "f",  href: "#" },
-  { label: "𝕏",  href: "#" },
+const socialLinks = [
+  { label: "f", href: "#" },
+  { label: "𝕏", href: "#" },
   { label: "IG", href: "#" },
   { label: "in", href: "#" },
 ];
 
-const marqueeWords = ["HEALING", "YOUTH FESTIVAL", "COMPLETE", "HEALING", "YOUTH FESTIVAL", "COMPLETE"];
+const scrollWords = [
+  "HEALING",
+  "YOUTH FESTIVAL",
+  "COMPLETE",
+  "HEALING",
+  "YOUTH FESTIVAL",
+  "COMPLETE",
+];
 
-export default function TeamSection() {
+export default function GrowHopeSection() {
   return (
-    <div className="ts-wrapper">
-      {/* ── Top Bar ── */}
-      <div className="ts-topbar">
-        <h2 className="ts-heading">Let's grow hope together</h2>
-        <a href="#" className="ts-cta">GET STARTED NOW</a>
+    <div className="gh-section">
+
+      {/* Header */}
+      <div className="gh-header">
+        <h2 className="gh-title">Let's grow hope together</h2>
+        <a href="#" className="gh-button">GET STARTED NOW</a>
       </div>
 
-      {/* ── Cards Grid ── */}
-      <div className="ts-grid">
-        {team.map((member, i) => (
-          <div className="ts-card" key={i}>
-            <img src={member.img} alt={member.name} className="ts-img" />
+      {/* Grid */}
+      <div className="gh-grid">
+        {teamMembers.map((member, index) => (
+          <div className="gh-card" key={index}>
+            <img
+              src={member.img}
+              alt={member.name}
+              className="gh-image"
+            />
 
-            {/* Orange overlay — shows on hover */}
-            <div className="ts-overlay">
-              <div className="ts-socials">
-                {socials.map((s, j) => (
-                  <a key={j} href={s.href} className="ts-social-btn">{s.label}</a>
+            <div className="gh-overlay">
+              <div className="gh-socials">
+                {socialLinks.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    className="gh-social-link"
+                  >
+                    {social.label}
+                  </a>
                 ))}
               </div>
             </div>
 
-            {/* Info always visible at bottom */}
-            <div className="ts-info">
-              <p className="ts-name">{member.name}</p>
-              <p className="ts-role">{member.role}</p>
+            <div className="gh-info">
+              <p className="gh-name">{member.name}</p>
+              <p className="gh-role">{member.role}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* ── Marquee Banner ── */}
-      <div className="ts-marquee-bar">
-        <div className="ts-marquee-track">
-          {[...marqueeWords, ...marqueeWords].map((word, i) => (
-            <span key={i} className="ts-marquee-word">{word}</span>
+      {/* Marquee */}
+      <div className="gh-marquee">
+        <div className="gh-track">
+          {[...scrollWords, ...scrollWords].map((word, i) => (
+            <span key={i} className="gh-word">
+              {word}
+            </span>
           ))}
         </div>
       </div>
+
     </div>
   );
 }

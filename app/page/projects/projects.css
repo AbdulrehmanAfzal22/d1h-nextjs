@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap');
+
+/* ════════════════════════════════
+   OUTER WRAPPER
+   Sets up the stacking context so
+   the video can overlap both zones.
+════════════════════════════════ */
+.projects-wrapper {
+  position: relative;
+  font-family: 'Barlow', sans-serif;
+  /* Push stats down enough that the video 
+     has room to overlap from above */
+  padding-top: 0;
+}
+
+/* ════════════════════════════════
+   SIMULATED WHITE SECTION ABOVE
+   (remove this if you already have
+    content above in your page)
+════════════════════════════════ */
+.above-section {
+  width: 100%;
+  /* This height = how much of the video
+     sits in the "white" zone above the black bar.
+     Match to half your video height roughly. */
+  height: 320px;
+  background: #ffffff;
+}
+
+/* ════════════════════════════════
+   BLACK STATS BAR
+   Sits below white zone; video
+   floats over the seam between them.
+════════════════════════════════ */
+.stats-section {
+  background-color: #000000;
+  color: #ffffff;
+  /* Top padding must be large enough to clear 
+     the bottom half of the floating video */
+  padding: 220px 80px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: center;
+  gap: 24px;
+}
+
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  color: #f5a623;
+  font-size: 30px;
+  margin-bottom: 18px;
+  line-height: 1;
+}
+
+.stat-box h2 {
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin: 0 0 12px;
+    /* font-size: clamp(2.4rem, 4vw, 3.8rem); */
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1;
+}
+.stat-box p {
+  font-size: 1rem;
+  color: #a0a0a0;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ════════════════════════════════
+   FLOATING VIDEO
+   Absolutely positioned so it
+   straddles the white/black seam.
+════════════════════════════════ */
+.video-float {
+  position: absolute;
+  /* Fine-tune these values:
+     top = where video top edge sits (inside white zone)
+     left/right = horizontal margins */
+  top: 40px;
+  left: 10%;
+  right: 0;
+  width: 88%;
+  /* Height of video window */
+  height: 480px;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Play button centered on video ── */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Subtle dark scrim so button is always visible */
+  background: rgba(0, 0, 0, 0.12);
+  transition: background 0.25s ease;
+}
+
+.play-overlay:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.play-icon {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin-left: 4px; /* optical centering for ▶ */
+  line-height: 1;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 900px) {
+  .video-float {
+    left: 5%;
+    width: 90%;
+    height: 360px;
+    top: 32px;
+  }
+
+  .above-section {
+    height: 260px;
+  }
+
+  .stats-section {
+    padding: 180px 32px 60px;
+    flex-wrap: wrap;
+    gap: 40px 16px;
+  }
+
+  .stat-box {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 560px) {
+  .video-float {
+    left: 4%;
+    width: 92%;
+    height: 260px;
+    top: 24px;
+  }
+
+  .above-section {
+    height: 200px;
+  }
+
+  .stats-section {
+    padding: 140px 20px 48px;
+    gap: 32px 12px;
+  }
+
+  .stat-box h2 {
+    font-size: 2.2rem;
+  }
+
+  .play-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .play-icon {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    background: #fff;
+    align-items: center;
+    height: 42vh;
+    padding-left: 189px;
+    display: flex;
+}
+
+.hero-content h1 {
+    color: #222;
+    margin-bottom: 40px;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.donate-btn {
+    color: #fff;
+    cursor: pointer;
+    background-color: #ff5a2c;
+    border: none;
+    border-radius: 40px;
+    padding: 14px 25px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.donate-btn:hover {
+  background-color: #e14c22;
+}
+
+.explore-btn {
+    cursor: pointer;
+    color: #333;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: bolder;
+    text-decoration: underline;
+}

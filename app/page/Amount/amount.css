@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@500;600;700&display=swap');
 
-/* ── Section ── */
-.donation-hero {
+/* ════════════════════════════════
+   SECTION SHELL
+════════════════════════════════ */
+.charity-hero {
   position: relative;
   width: 100%;
-  min-height: 560px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,33 +14,39 @@
   font-family: 'Barlow', sans-serif;
 }
 
-/* ── Background image ── */
-/* 👉 To use your own image, replace the <img src> in the JSX file */
-.hero-bg {
+/* ════════════════════════════════
+   BACKGROUND IMAGE
+════════════════════════════════ */
+.charity-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 28%;
   z-index: 0;
+  filter: saturate(0.9) brightness(0.88);
 }
 
-/* ── Dark overlay ── */
-.hero-overlay {
+/* ════════════════════════════════
+   DARK OVERLAY
+════════════════════════════════ */
+.charity-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 15, 15, 0.58);
+  background: rgba(12, 8, 4, 0.56);
   z-index: 1;
 }
 
-/* ── Content ── */
-.hero-content {
+/* ════════════════════════════════
+   CENTERED CONTENT
+════════════════════════════════ */
+.charity-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 80px 24px;
-  max-width: 780px;
+  padding: 88px 24px;
+  max-width: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -46,79 +54,97 @@
   gap: 20px;
 }
 
-/* ── Label ── */
-.hero-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 3px;
+.charity-content h1 {
   color: #ffffff;
-  opacity: 0.85;
-  text-transform: uppercase;
+  margin-bottom: 40px;
+  font-size: 49px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
-/* ── Title ── */
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+/* ════════════════════════════════
+   EYEBROW LABEL
+════════════════════════════════ */
+.charity-label {
+  letter-spacing: 2px;
+  color: #fff;
+  opacity: .78;
+  text-transform: uppercase;
+  margin-bottom: -4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* ════════════════════════════════
+   HEADLINE
+════════════════════════════════ */
+.charity-title {
+  font-size: clamp(2.1rem, 5.2vw, 3.35rem);
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.15;
+  line-height: 1.13;
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
-/* ── Subtitle ── */
-.hero-subtitle {
+/* ════════════════════════════════
+   SUBTITLE
+════════════════════════════════ */
+.charity-subtitle {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 560px;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 580px;
+  line-height: 1.65;
   margin: 0;
 }
 
-/* ── Amount buttons grid ── */
-.amount-grid {
+/* ════════════════════════════════
+   AMOUNT BUTTONS ROW
+════════════════════════════════ */
+.donation-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-.amount-btn {
-  min-width: 100px;
-  padding: 14px 20px;
+.donation-btn {
+  min-width: 108px;
+  padding: 15px 22px;
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   color: #ffffff;
   font-family: 'Barlow', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
   border-radius: 2px;
+  transition: border-color 0.18s, background 0.18s;
+  line-height: 1;
 }
 
-.amount-btn:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+.donation-btn:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-.amount-btn.active {
-  border-color: #ffffff;
+.donation-btn.active {
+  border: 2px solid #ffffff;
   background: transparent;
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+  box-shadow: 0 0 0 2.5px rgba(255, 255, 255, 0.5);
 }
 
-/* ── Custom amount ── */
-.custom-wrap {
+/* Custom amount */
+.custom-box {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.custom-input {
+.custom-field {
   background: transparent;
   border: none;
   outline: none;
@@ -126,22 +152,33 @@
   font-family: 'Barlow', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  width: 110px;
+  width: 118px;
   text-align: center;
 }
 
-.custom-input::placeholder {
-  color: rgba(255,255,255,0.5);
+.custom-field::placeholder {
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.85rem;
 }
 
-/* ── Donate button ── */
-.donate-btn {
-  margin-top: 8px;
-  padding: 18px 64px;
+.custom-field::-webkit-outer-spin-button,
+.custom-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.custom-field[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ════════════════════════════════
+   DONATE BUTTON
+════════════════════════════════ */
+.primary-donate-btn {
+  margin-top: 6px;
+  padding: 19px 68px;
   background: #f5a623;
   border: none;
-  color: #fff;
+  color: #ffffff;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -149,26 +186,51 @@
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 2px;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.18s, transform 0.14s, box-shadow 0.18s;
+  box-shadow: 0 4px 22px rgba(245, 166, 35, 0.42);
 }
 
-.donate-btn:hover {
+.primary-donate-btn:hover {
   background: #e09418;
   transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(245, 166, 35, 0.52);
 }
 
-.donate-btn:active {
+.primary-donate-btn:active {
   transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(245, 166, 35, 0.3);
 }
 
-/* ── Responsive ── */
-@media (max-width: 540px) {
-  .amount-btn {
-    min-width: 80px;
-    padding: 12px 14px;
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 640px) {
+  .charity-content {
+    padding: 68px 20px;
+    gap: 16px;
   }
 
-  .donate-btn {
-    padding: 16px 40px;
+  .donation-btn {
+    min-width: 84px;
+    padding: 13px 16px;
+    font-size: 0.95rem;
+  }
+
+  .primary-donate-btn {
+    padding: 17px 44px;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .donation-grid {
+    gap: 8px;
+  }
+
+  .donation-btn {
+    min-width: 72px;
+    padding: 11px 12px;
+    font-size: 0.875rem;
   }
 }
