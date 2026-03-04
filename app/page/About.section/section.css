@@ -75,7 +75,7 @@
 }
 
 .vision-btn:hover,
-.vision-btn.active {
+.vision-btn--active {
   background: #111;
   border-color: #111;
   color: #fff;
@@ -112,36 +112,49 @@
   position: relative;
   cursor: pointer;
   animation: fadeUp 0.5s ease forwards;
+
+  /* Make sure the card itself is a stacking context */
+  isolation: isolate;
 }
 
-.vision-card img {
+/* ── Image wrapper fills the entire card ── */
+.vision-card__img-wrap {
+  position: absolute;
+  inset: 0;          /* top:0 right:0 bottom:0 left:0 */
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  overflow: hidden;
+}
+
+/* ── The <img> fills its wrapper completely ── */
+.vision-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fills card without distortion  */
+  object-position: center;  /* crop from the center           */
   display: block;
   transition: transform 0.6s ease;
 }
 
-.vision-card:hover img {
+.vision-card:hover .vision-card__img {
   transform: scale(1.05);
 }
 
 /* ════════════════════════════════
    OVERLAY
-   Default: dark gradient at bottom
-   Hover:   solid orange wash
 ════════════════════════════════ */
 .vision-overlay {
   position: absolute;
   inset: 0;
+  /* Default: dark gradient at the bottom for readability */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.76) 0%,
-    rgba(0, 0, 0, 0.18) 50%,
+    rgba(0, 0, 0, 0.80) 0%,
+    rgba(0, 0, 0, 0.20) 50%,
     rgba(0, 0, 0, 0.02) 100%
   );
   transition: background 0.38s ease;
+  z-index: 1;
 }
 
 .vision-card:hover .vision-overlay {
@@ -161,6 +174,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 2;   /* sit above the overlay */
 }
 
 .vision-icon {
@@ -236,8 +250,9 @@
   height: 52px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   border: 2px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .quote-author {
@@ -260,8 +275,14 @@
    ANIMATIONS
 ════════════════════════════════ */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ════════════════════════════════
@@ -272,15 +293,18 @@
     flex-direction: column;
     padding: 48px 0 0;
   }
+
   .vision-left {
     width: 100%;
     max-width: 100%;
     padding: 0 32px 32px;
   }
+
   .vision-card {
     width: 280px;
     height: 380px;
   }
+
   .vision-track {
     padding-left: 32px;
     padding-bottom: 40px;
@@ -288,9 +312,24 @@
 }
 
 @media (max-width: 540px) {
-  .vision-left { padding: 0 20px 28px; }
-  .vision-card { width: 240px; height: 320px; }
-  .vision-card-title { font-size: 1.2rem; }
-  .vision-track { padding-left: 20px; }
-  .quote-section { padding: 56px 20px; }
+  .vision-left {
+    padding: 0 20px 28px;
+  }
+
+  .vision-card {
+    width: 240px;
+    height: 320px;
+  }
+
+  .vision-card-title {
+    font-size: 1.2rem;
+  }
+
+  .vision-track {
+    padding-left: 20px;
+  }
+
+  .quote-section {
+    padding: 56px 20px;
+  }
 }

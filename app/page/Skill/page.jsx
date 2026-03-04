@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
-import "./skill.css"; 
+import "./skill.css";
+import img1 from "../../../public/assets/d1h-5.png";
 
 function CircleProgress({ percent, label, animate }) {
   const r = 40;
@@ -43,7 +44,8 @@ export default function PopularSkills() {
 
   return (
     <section className="skills-section">
-      {/* Left */}
+
+      {/* ── Left ── */}
       <div className="skills-left">
         <p className="skills-label">Popular Skills</p>
         <h2 className="skills-title">
@@ -55,22 +57,26 @@ export default function PopularSkills() {
         </p>
 
         <div className="circles-row">
-          <CircleProgress percent={43} label="Provide Hope" animate={animate} />
+          <CircleProgress percent={43} label="Provide Hope"  animate={animate} />
           <CircleProgress percent={93} label="Support Lives" animate={animate} />
         </div>
       </div>
 
-      {/* Right */}
+      {/* ── Right ── */}
       <div className="skills-right">
         <div className="blob-bg" />
         <div className="image-blob">
-          {/* Replace src with your own image */}
+
+          {/* ✅ FIX: img1.src  —  Next.js imports give an object, .src gets the URL */}
           <img
-            src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=80"
+            src={img1.src}
             alt="People hugging"
+            className="skills-img"
           />
+
         </div>
       </div>
+
     </section>
   );
 }
