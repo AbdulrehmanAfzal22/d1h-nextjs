@@ -5,9 +5,8 @@
 ════════════════════════════════ */
 .nav-header {
   width: 100%;
-  background: #fff;          /* very warm off-white matching screenshot */
+  background: #fff;
   border-bottom: 1px solid #ede8dc;
-  /* position: sticky; */
   top: 0;
   z-index: 1000;
   font-family: 'Barlow', sans-serif;
@@ -25,7 +24,7 @@
 }
 
 /* ════════════════════════════════
-   LOGO
+   LOGO — Fixed: was 112px height causing overflow
 ════════════════════════════════ */
 .nav-logo {
   display: flex;
@@ -35,9 +34,11 @@
 }
 
 .nav-logo-img {
-    width: 131px;
-    height: 112px;
-    display: block;
+  width: auto !important;
+  height: 52px !important;
+  max-height: 52px;
+  display: block;
+  object-fit: contain;
 }
 
 /* ════════════════════════════════
@@ -67,7 +68,7 @@
   color: #1a1a1a;
 }
 
-/* Active underline — matches screenshot's thin line under "Home" */
+/* Active underline */
 .nav-link.active::after {
   content: '';
   position: absolute;
@@ -108,25 +109,7 @@
   flex-shrink: 0;
 }
 
-/* Search icon button */
-.nav-search-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #1a1a1a;
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.18s;
-  border-radius: 4px;
-}
-
-.nav-search-btn:hover {
-  opacity: 0.6;
-}
-
-/* "LET'S TALK" CTA — plain uppercase bold text, no background */
+/* CTA */
 .nav-cta {
   font-size: 13px;
   font-weight: 800;
@@ -157,39 +140,7 @@
 }
 
 /* ════════════════════════════════
-   EXPANDABLE SEARCH BAR
-════════════════════════════════ */
-.nav-search-bar {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  border-top: 1px solid transparent;
-  background: #fffdf7;
-}
-
-.nav-search-bar.open {
-  max-height: 64px;
-  border-top-color: #ede8dc;
-  padding: 12px 48px;
-}
-
-.nav-search-input {
-  width: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #1a1a1a;
-}
-
-.nav-search-input::placeholder {
-  color: #aaa;
-}
-
-/* ════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — Mobile
 ════════════════════════════════ */
 @media (max-width: 900px) {
   .nav-container {
@@ -235,10 +186,6 @@
   .nav-cta {
     display: none;
   }
-
-  .nav-search-bar.open {
-    padding: 12px 24px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -252,6 +199,7 @@
   }
 
   .nav-logo-img {
-    height: 30px;
+    height: 42px !important;
+    max-height: 42px;
   }
 }

@@ -1,42 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap');
 
 /* ════════════════════════════════
+   HERO SECTION
+════════════════════════════════ */
+.hero {
+  background: #fff;
+  align-items: center;
+  min-height: 42vh;
+  padding: 48px 80px;
+  display: flex;
+}
+
+.hero-content h1 {
+  color: #222;
+  margin-bottom: 40px;
+  font-size: 46px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.donate-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff5a2c;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 25px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.donate-btn:hover {
+  background-color: #e14c22;
+}
+
+.explore-btn {
+  cursor: pointer;
+  color: #333;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+/* ════════════════════════════════
    OUTER WRAPPER
-   Sets up the stacking context so
-   the video can overlap both zones.
 ════════════════════════════════ */
 .projects-wrapper {
   position: relative;
   font-family: 'Barlow', sans-serif;
-  /* Push stats down enough that the video 
-     has room to overlap from above */
   padding-top: 0;
 }
 
 /* ════════════════════════════════
-   SIMULATED WHITE SECTION ABOVE
-   (remove this if you already have
-    content above in your page)
+   WHITE SECTION ABOVE
 ════════════════════════════════ */
 .above-section {
   width: 100%;
-  /* This height = how much of the video
-     sits in the "white" zone above the black bar.
-     Match to half your video height roughly. */
   height: 320px;
   background: #ffffff;
 }
 
 /* ════════════════════════════════
    BLACK STATS BAR
-   Sits below white zone; video
-   floats over the seam between them.
 ════════════════════════════════ */
 .stats-section {
   background-color: #000000;
   color: #ffffff;
-  /* Top padding must be large enough to clear 
-     the bottom half of the floating video */
   padding: 220px 80px 80px;
   display: flex;
   justify-content: space-between;
@@ -60,14 +98,14 @@
 }
 
 .stat-box h2 {
-    letter-spacing: -0.02em;
-    color: #fff;
-    margin: 0 0 12px;
-    /* font-size: clamp(2.4rem, 4vw, 3.8rem); */
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 12px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
 }
+
 .stat-box p {
   font-size: 1rem;
   color: #a0a0a0;
@@ -78,19 +116,12 @@
 
 /* ════════════════════════════════
    FLOATING VIDEO
-   Absolutely positioned so it
-   straddles the white/black seam.
 ════════════════════════════════ */
 .video-float {
   position: absolute;
-  /* Fine-tune these values:
-     top = where video top edge sits (inside white zone)
-     left/right = horizontal margins */
   top: 40px;
   left: 10%;
-  right: 0;
-  width: 88%;
-  /* Height of video window */
+  width: 80%;
   height: 480px;
   border-radius: 6px;
   overflow: hidden;
@@ -106,14 +137,13 @@
   display: block;
 }
 
-/* ── Play button centered on video ── */
+/* ── Play button ── */
 .play-overlay {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Subtle dark scrim so button is always visible */
   background: rgba(0, 0, 0, 0.12);
   transition: background 0.25s ease;
 }
@@ -145,14 +175,23 @@
 .play-icon {
   font-size: 1.4rem;
   color: #1a1a1a;
-  margin-left: 4px; /* optical centering for ▶ */
+  margin-left: 4px;
   line-height: 1;
 }
 
 /* ════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — Tablet (max 900px)
 ════════════════════════════════ */
 @media (max-width: 900px) {
+  .hero {
+    padding: 40px 32px;
+    min-height: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
   .video-float {
     left: 5%;
     width: 90%;
@@ -175,99 +214,88 @@
   }
 }
 
+/* ════════════════════════════════
+   RESPONSIVE — Mobile (max 560px)
+════════════════════════════════ */
 @media (max-width: 560px) {
+  .hero {
+    padding: 32px 20px;
+    min-height: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    gap: 16px;
+  }
+
   .video-float {
     left: 4%;
     width: 92%;
-    height: 260px;
-    top: 24px;
+    height: 220px;
+    top: 20px;
   }
 
   .above-section {
-    height: 200px;
+    height: 160px;
   }
 
   .stats-section {
-    padding: 140px 20px 48px;
-    gap: 32px 12px;
+    padding: 120px 16px 40px;
+    gap: 24px 10px;
+  }
+
+  .stat-box {
+    flex: 1 1 calc(50% - 10px);
   }
 
   .stat-box h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .stat-box p {
+    font-size: 0.85rem;
+  }
+
+  .icon {
+    font-size: 22px;
+    margin-bottom: 10px;
   }
 
   .play-btn {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
   }
 
   .play-icon {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
+/* ════════════════════════════════
+   RESPONSIVE — Small Mobile (max 400px)
+════════════════════════════════ */
+@media (max-width: 400px) {
+  .hero-content h1 {
+    font-size: 22px;
+  }
 
+  .stat-box {
+    flex: 1 1 100%;
+  }
 
+  .video-float {
+    height: 180px;
+  }
 
+  .above-section {
+    height: 130px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.hero {
-    background: #fff;
-    align-items: center;
-    height: 42vh;
-    padding-left: 189px;
-    display: flex;
-}
-
-.hero-content h1 {
-    color: #222;
-    margin-bottom: 40px;
-    font-size: 46px;
-    font-weight: bold;
-    line-height: 1.2;
-}
-
-.hero-buttons {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.donate-btn {
-    color: #fff;
-    cursor: pointer;
-    background-color: #ff5a2c;
-    border: none;
-    border-radius: 40px;
-    padding: 14px 25px;
-    font-size: 11px;
-    font-weight: bold;
-}
-.donate-btn:hover {
-  background-color: #e14c22;
-}
-
-.explore-btn {
-    cursor: pointer;
-    color: #333;
-    background: none;
-    border: none;
-    font-size: 13px;
-    font-weight: bolder;
-    text-decoration: underline;
+  .stats-section {
+    padding: 100px 16px 36px;
+  }
 }

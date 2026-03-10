@@ -29,15 +29,13 @@ function Projects() {
   }, []);
 
   return (
-    <>   
-    
-    <div className="hero">
+    <>
+      <div className="hero">
         <div className="hero-content">
           <h1>
             Building bridges: together <br />
             we create impact!
           </h1>
-
           <div className="hero-buttons">
             <button className="donate-btn">DONATE NOW</button>
             <button className="explore-btn">EXPLORE MORE</button>
@@ -45,57 +43,54 @@ function Projects() {
         </div>
       </div>
 
-    <div className="projects-wrapper">
+      <div className="projects-wrapper">
 
+        {/* ── White space above (simulates previous section) ── */}
+        <div className="above-section" />
 
-      {/* ── White space above (simulates previous section) ── */}
-      <div className="above-section" />
+        {/* ── Stats bar (black) — sits BEHIND the video ── */}
+        <div className="stats-section">
+          <div className="stat-box">
+            <div className="icon"><Sun size={32} /></div>
+            <h2>{count1.toLocaleString()}+</h2>
+            <p>Projects Complete</p>
+          </div>
+          <div className="stat-box">
+            <div className="icon"><Sprout size={32} /></div>
+            <h2>{count2}%</h2>
+            <p>Clients Satisfaction</p>
+          </div>
+          <div className="stat-box">
+            <div className="icon"><Dog size={32} /></div>
+            <h2>{count3}k</h2>
+            <p>Professional Skills</p>
+          </div>
+          <div className="stat-box">
+            <div className="icon"><Globe size={32} /></div>
+            <h2>{count4}+</h2>
+            <p>Awards Winning</p>
+          </div>
+        </div>
 
-      {/* ── Stats bar (black) — sits BEHIND the video ── */}
-      <div className="stats-section">
-        <div className="stat-box">
-          <div className="icon"><Sun size={32} /></div>
-          <h2>{count1.toLocaleString()}+</h2>
-          <p>Projects Complete</p>
+        {/* ── Video — absolutely positioned to overlap both sections ── */}
+        <div className="video-float">
+          <video
+            className="video-el"
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="play-overlay">
+            <button className="play-btn" aria-label="Play video">
+              <span className="play-icon">▶</span>
+            </button>
+          </div>
         </div>
-        <div className="stat-box">
-          <div className="icon"><Sprout size={32} /></div>
-          <h2>{count2}%</h2>
-          <p>Clients Satisfaction</p>
-        </div>
-        <div className="stat-box">
-          <div className="icon"><Dog size={32} /></div>
-          <h2>{count3}k</h2>
-          <p>Professional Skills</p>
-        </div>
-        <div className="stat-box">
-          <div className="icon"><Globe size={32} /></div>
-          <h2>{count4}+</h2>
-          <p>Awards Winning</p>
-        </div>
+
       </div>
-
-      {/* ── Video — absolutely positioned to overlap both sections ── */}
-      <div className="video-float">
-        <video
-          className="video-el"
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        {/* Play button overlay */}
-        <div className="play-overlay">
-          <button className="play-btn" aria-label="Play video">
-            <span className="play-icon">▶</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
     </>
-
   );
 }
 

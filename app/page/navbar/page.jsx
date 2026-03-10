@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import "./navbar.css";
 import Image from "next/image";
 import logo from "../../../public/assets/donate.png";
+
 const navLinks = [
   { label: "Vision", href: "#", active: true },
   { label: "Donate", href: "#" },
-  { label: "skill", href: "#" },
+  { label: "Skill", href: "#" },
   { label: "Members", href: "#" },
   { label: "About", href: "#" },
   { label: "Post", href: "#" },
@@ -15,7 +16,6 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <header className="nav-header">
@@ -23,7 +23,6 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <a href="#" className="nav-logo">
-      
           <Image src={logo} alt="Logo" className="nav-logo-img" />
         </a>
 
@@ -41,17 +40,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* ── Right Actions ── */}
+        {/* ── Right Side ── */}
         <div className="nav-right">
-          {/* Search */}
-          {/* <button
-            className="nav-search-btn"
-            aria-label="Search"
-            onClick={() => setSearchOpen(!searchOpen)}
-          >
-            <Search size={20} strokeWidth={1.8} />
-          </button> */}
-
           {/* CTA */}
           <a href="#" className="nav-cta">Join us</a>
 
@@ -65,16 +55,6 @@ export default function Navbar() {
           </button>
         </div>
 
-      </div>
-
-      {/* Search bar (expands below nav on click) */}
-      <div className={`nav-search-bar ${searchOpen ? "open" : ""}`}>
-        <input
-          type="text"
-          placeholder="Search…"
-          className="nav-search-input"
-          autoFocus={searchOpen}
-        />
       </div>
     </header>
   );

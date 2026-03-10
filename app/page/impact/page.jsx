@@ -3,7 +3,6 @@ import "./impact.css";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
 import Image  from "next/image";
 import img9 from"../../../public/assets/dh1-9.jpg";
-import img10 from"../../../public/assets/d1h-10.avif";
 import img8 from"../../../public/assets/d1h-8.jpg";
 
 const stories = [
@@ -19,7 +18,6 @@ const stories = [
     date: "May 24, 2026",
     location: "Hyde Park",
     time: "Starts 8:00 am",
-    img: img10,
   },
   {
     title: "Making a positive impact every day",
