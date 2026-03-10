@@ -24,7 +24,7 @@
 }
 
 /* ════════════════════════════════
-   LOGO — Fixed: was 112px height causing overflow
+   LOGO
 ════════════════════════════════ */
 .nav-logo {
   display: flex;
@@ -35,8 +35,8 @@
 
 .nav-logo-img {
   width: auto !important;
-  height: 52px !important;
-  max-height: 52px;
+  height: 64px !important;
+  max-height: 64px;
   display: block;
   object-fit: contain;
 }
@@ -199,7 +199,7 @@
   }
 
   .nav-logo-img {
-    height: 42px !important;
-    max-height: 42px;
+    height: 54px !important;
+    max-height: 54px;
   }
 }
