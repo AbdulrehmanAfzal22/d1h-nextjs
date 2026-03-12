@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+import Link from "next/link";
 import "./amount.css";
 
 export default function DonationHero() {
@@ -21,7 +22,9 @@ export default function DonationHero() {
         <span className="charity-label">MAKE DONATIONS</span>
 
         <h1 className="charity-title">
-          Inspiring acts of kindness, our<br />charity journey
+          Inspiring acts of kindness, our
+          <br />
+          charity journey
         </h1>
 
         <p className="charity-subtitle">
@@ -42,9 +45,7 @@ export default function DonationHero() {
             </button>
           ))}
 
-          <div
-            className={`donation-btn custom-box ${selected === "custom" ? "active" : ""}`}
-          >
+          <div className={`donation-btn custom-box ${selected === "custom" ? "active" : ""}`}>
             {selected === "custom" ? (
               <input
                 className="custom-field"
@@ -60,7 +61,12 @@ export default function DonationHero() {
           </div>
         </div>
 
-        <button className="primary-donate-btn">DONATE NOW</button>
+        <Link href="/page/form">
+          <button className="primary-donate-btn">
+            DONATE NOW
+          </button>
+        </Link>
+
       </div>
     </section>
   );

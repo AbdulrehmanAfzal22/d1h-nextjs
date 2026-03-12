@@ -3,24 +3,24 @@ import "./grow.css";
 
 const teamMembers = [
   {
-    name: "Stella Collins",
-    role: "Legal Assistant",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80",
+    // name: "Ali Hassan",
+    // role: "Legal Assistant",
+    img: "/assets/d1h-11.webp"
   },
   {
-    name: "Gabriel Turner",
-    role: "Data Scientist",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+    // name: "Sara Ahmed",
+    // role: "Data Scientist",
+    img: "/assets/d1h-12.jpg"
   },
   {
-    name: "Daniel Foster",
-    role: "Event Coordinator",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
+    // name: "Umar Farooq",
+    // role: "Event Coordinator",
+    img: "/assets/d1h-13.jpg"
   },
   {
-    name: "Olivia Grace",
-    role: "Community Manager",
-    img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80",
+    // name: "Ayesha Khan",
+    // role: "Community Manager",
+    img: "/assets/d1h-14.webp"
   },
 ];
 
@@ -43,31 +43,20 @@ const scrollWords = [
 export default function GrowHopeSection() {
   return (
     <div className="gh-section">
-
-      {/* Header */}
       <div className="gh-header">
         <h2 className="gh-title">Let's grow hope together</h2>
         <a href="#" className="gh-button">GET STARTED NOW</a>
       </div>
 
-      {/* Grid */}
       <div className="gh-grid">
         {teamMembers.map((member, index) => (
           <div className="gh-card" key={index}>
-            <img
-              src={member.img}
-              alt={member.name}
-              className="gh-image"
-            />
+            <img src={member.img} alt={member.name} className="gh-image" />
 
             <div className="gh-overlay">
               <div className="gh-socials">
                 {socialLinks.map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.href}
-                    className="gh-social-link"
-                  >
+                  <a key={i} href={social.href} className="gh-social-link">
                     {social.label}
                   </a>
                 ))}
@@ -82,7 +71,6 @@ export default function GrowHopeSection() {
         ))}
       </div>
 
-      {/* Marquee */}
       <div className="gh-marquee">
         <div className="gh-track">
           {[...scrollWords, ...scrollWords].map((word, i) => (
@@ -92,7 +80,6 @@ export default function GrowHopeSection() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }

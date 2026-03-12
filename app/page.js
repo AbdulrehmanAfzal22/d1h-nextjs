@@ -8,6 +8,9 @@ import LatestPosts from "./page/post/page";
 import Footer from "./page/savior/page";
 import Projects from "./page/projects/page";
 import Navbar from "./page/navbar/page";
+
+import InviteForm from "./page/form/page";
+
 export default function Home() {
   return (
     <div>
@@ -21,6 +24,7 @@ export default function Home() {
        <Impact />
        <LatestPosts />
        <Footer />
+       {/* <InviteForm/> */}
    
 
     </div>

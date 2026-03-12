@@ -1,0 +1,210 @@
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: #f5a623;
+  color: #fff;
+}
+
+.Infocontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.make {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0d1b4b;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.section {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 18px 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.highlight {
+  color: #f5a623;
+}
+
+.titleLine {
+  width: 60px;
+  height: 4px;
+  background: #f5a623;
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.box {
+  position: relative;
+  background: #fafafa;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+  text-align: left;
+}
+
+.bankHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.bankIcon {
+  font-size: 20px;
+  color: #f5a623;
+}
+
+.account {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1b4b;
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 0;
+  padding: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardBankName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cardIcon {
+  font-size: 16px;
+  color: #f5a623;
+}
+
+.label {
+  font-size: 11px;
+  color: #888;
+  margin: 0 0 3px 0;
+}
+
+.value {
+  font-size: 12px;
+  color: #111;
+  margin: 0 0 8px 0;
+}
+
+.ibanRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iban {
+  font-family: monospace;
+  font-size: 11px;
+  color: #222;
+  word-break: break-all;
+}
+
+.copyIcon {
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+.copyIcon:hover {
+  color: #f5a623;
+}
+
+.note {
+  font-size: 11px;
+  color: #666;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  animation: slideUp 0.3s ease;
+}
+
+.toastIcon {
+  font-size: 20px;
+  color: #2e7d5e;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

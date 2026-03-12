@@ -2,6 +2,9 @@
 import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import "./post.css";
+import Image from "next/image";
+import img14 from "../../../public/assets/dh1-14.jpg";
+import img16 from "../../../public/assets/dh1-16.jpg";
 
 const CARD_WIDTH = 380;
 
@@ -18,7 +21,7 @@ const posts = [
     comments: 0,
     title: "Building bridges to the better lives",
     date: "May 8, 2024",
-    img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80",
+    img: img14,
   },
   {
     tag: "DONATION",
@@ -32,7 +35,7 @@ const posts = [
     comments: 2,
     title: "Empowering communities through education",
     date: "May 10, 2024",
-    img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80",
+    img: img16
   },
   {
     tag: "COMMUNITY",
@@ -57,7 +60,7 @@ export default function LatestPosts() {
 
   return (
     <section className="lp-section">
-      {/* ── Left Panel ── */}
+
       <div className="lp-left">
         <span className="lp-label">IMPACT STORIES</span>
         <h2 className="lp-heading">Latest posts</h2>
@@ -65,37 +68,44 @@ export default function LatestPosts() {
           Lorem ipsum dolor sit amet consectetur adipiscing elit eiusmod
           tempor incididunt nostrud exercitation ullamco.
         </p>
+
         <div className="lp-arrows">
           <button
             className={`lp-arrow-btn${index === 0 ? " disabled" : ""}`}
             onClick={() => scrollTo(index - 1)}
-            aria-label="Previous"
           >
             <ArrowLeft size={18} strokeWidth={2} />
           </button>
+
           <button
             className={`lp-arrow-btn${index === posts.length - 1 ? " disabled" : ""}`}
             onClick={() => scrollTo(index + 1)}
-            aria-label="Next"
           >
             <ArrowRight size={18} strokeWidth={2} />
           </button>
         </div>
       </div>
 
-      {/* ── Scrollable Cards ── */}
       <div className="lp-track-wrap">
         <div className="lp-track" ref={trackRef}>
           {posts.map((post, i) => (
             <a href="#" className="lp-card" key={i}>
               <div className="lp-img-wrap">
-                <img src={post.img} alt={post.title} className="lp-img" />
+
+                {typeof post.img === "string" ? (
+                  <img src={post.img} alt={post.title} className="lp-img" />
+                ) : (
+                  <Image src={post.img} alt={post.title} className="lp-img" />
+                )}
+
                 <div className="lp-overlay">
                   <div className="lp-arrow-circle">
                     <ArrowRight size={20} strokeWidth={2.5} />
                   </div>
                 </div>
+
               </div>
+
               <div className="lp-content">
                 <div className="lp-meta">
                   <span className="lp-tag">{post.tag}</span>
@@ -109,6 +119,7 @@ export default function LatestPosts() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }
